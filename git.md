@@ -12,11 +12,14 @@ Command | Description
 
 ## Cherry pick all commits from a branch
 
-See https://stackoverflow.com/questions/35437253/how-to-git-cherrypick-all-changes-introduced-in-specific-branch
+From https://stackoverflow.com/questions/35437253/how-to-git-cherrypick-all-changes-introduced-in-specific-branch
+
+BRANCH=feature-com-8138-tax_refund_booking_subtype_part2
+git cherry-pick $(git merge-base master $BRANCH)..$(git log --format=%H $BRANCH | head -1)
 
 ## Whitespace merges
 
-Uit https://git-scm.com/book/tr/v2/Git-Tools-Advanced-Merging 
+From https://git-scm.com/book/tr/v2/Git-Tools-Advanced-Merging 
 
 > The default merge strategy can take arguments though, and a few of them are about properly ignoring whitespace changes. If you see that you have a lot of whitespace issues in a merge, you can simply abort it and do it again, this time with -Xignore-all-space or -Xignore-space-change. The first option ignores changes in any amount of existing whitespace, the second ignores all whitespace changes altogether.
 > 
