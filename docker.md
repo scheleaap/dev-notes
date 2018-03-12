@@ -3,7 +3,7 @@
 ## Commands
 
 Command | Description
-- | -
+--- | ---
 `docker build .` | Build image with Dockerfile in local directory
 `docker exec -it <container name> /bin/bash` |
 `docker ps -a` | View all containers

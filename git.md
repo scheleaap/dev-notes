@@ -1,7 +1,7 @@
 # git
 
 Command | Description
-- | -
+--- | ---
 `git log -p <path>` | Show the changes to a file
 `git log --grep <string>` | Filter commits by message
 `git push origin --delete <branch>` | Delete remote branch

@@ -1,7 +1,7 @@
 # Linux commands
 
 Command | Description
-- | -
+--- | ---
 `xdg-open` | Open a file with the default desktop program
 `cat lines.txt | sed "s/\(.*\)/\"\1\"/"` | Wrap all lines in a file in quotes
 `xxd <file>` | View hex

@@ -9,7 +9,7 @@ cat MT940.txt | curl -X POST "http://localhost:8080/" -H "Content-Type:applicati
 ```
 
 What | How
-- | -
+--- | ---
 Request method | `-X POST`
 Request body | `--data "bla die bla"`<br> See also the parameters `-d @-` and `-d @<filename>`
 Request headers | `-H "Content-Type:application/json"`
