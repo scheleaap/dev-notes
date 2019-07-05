@@ -49,9 +49,9 @@ git commit
 After the commit, files in the new HEAD will be the same as they were in the revision HEAD~3.
 
 
-# Delete all local and remote tags
+## Delete all local and remote tags
 
-```sh
+```bash
 # Delete local tags.
 git tag -d $(git tag -l)
 # Fetch remote tags.

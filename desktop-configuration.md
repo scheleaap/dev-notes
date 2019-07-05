@@ -2,13 +2,6 @@
 
 ## Software installation
 
-### Atom
-```
-sudo add-apt-repository ppa:webupd8team/atom 
-sudo apt-get update
-sudo apt-get install atom
-```
-
 ## Commitizen
 
 https://commitizen.github.io/cz-cli/
@@ -107,30 +100,10 @@ fusermount -u ~/remote_projects
 ## Ubuntu
 
 ```
-apt-get install compizconfig-settings-manager unity-tweak-tool
+apt-get install unity-tweak-tool
 ```
 
-* Normal settings
-  * 
-* Compiz Settings Manager
-  * Ubuntu Unity Plugin -> Switcher
-    * Disable Show Desktop in the Switcher
-    * Disable the mouse in the Switcher
-    * Alle keyboard shortcuts verwijderd
-  * Application Switcher ingeschakeld
 * Unity Tweak Tool
-  * Launcher
-    * Minimize single window applications on click (/)
-  * Search
-    * Show "More suggestions" (x)
-  * Panel
-    * Configure clock
-  * Web Apps
-    * _Disable everything_
-  * Additional
-    * Notifications: All displays
-  * Workspace settings
-    * _Configure_
   * Fonts:
     * Default font: 9
     * Document font: 9
@@ -146,15 +119,6 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 ```
 
-
-## MySQL / MariaDB
-
-Toegevoegd aan `/etc/mysql/mysql.conf.d/mysqld.cnf`:
-
-```
-#sql_mode="ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
-```
 
 ## Nativefier
 
