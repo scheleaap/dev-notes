@@ -63,3 +63,12 @@ git tag -d $(git tag -l)
 ```
 
 From https://gist.github.com/okunishinishi/9424779
+
+
+## Rebase dependent feature branch after squash
+
+From https://makandracards.com/makandra/45964-git-rebase-dependent-feature-branch-after-squash
+
+```bash
+git rebase --onto origin/master <branch you branched off of> <branch you want to rebase>
+```
