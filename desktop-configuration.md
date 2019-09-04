@@ -16,14 +16,6 @@ sudo apt-get install emojione-picker
 ```
 
 
-### IntelliJ
-
-```
-sudo add-apt-repository ppa:mmk2410/intellij-idea
-sudo apt-get update
-sudo apt-get install intellij-idea-community
-```
-
 ## Ubuntu Tweak
 
 ```
