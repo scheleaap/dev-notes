@@ -2,6 +2,12 @@
 
 ## Software installation
 
+## SSH Key
+
+```
+ssh-keygen -t rsa -b 4096 -C "wout-$(date '+%Y%m%d')-rsa4096"
+```
+
 ## Commitizen
 
 https://commitizen.github.io/cz-cli/
