@@ -13,5 +13,5 @@ What | How
 Request method | `-X POST`
 Request body | `--data 'bla die bla'`<br> See also the parameters `-d @-` and `-d @<filename>`
 Request headers | `-H "Content-Type:application/json"`
-Request username/password | `-u username:password`
+Request username/password (basic auth) | `-u username:password`
 Response headers | `-I`
