@@ -29,3 +29,6 @@ Delete a namespace and everything in it:
 kubectl -n local-integrationhub delete --all all
 kubectl delete namespace local-integrationhub
 ```
+
+Get the node a pod is running on | `kubectl get pod -o jsonpath='{.items[0].spec.nodeName}'`
+Get the node each pod is running on | `kubectl get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'`
