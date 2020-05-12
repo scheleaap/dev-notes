@@ -12,9 +12,23 @@ Command | Description
 `diff -qNr` | Compare two directory trees (`-N` also includes files that may not exist in either directory)
 `ncdu` | Tree-based disk space viewer
 `tail -n+1` | Skip first line
+`sed -n '16224,16482p;16483q' source > target` | Print lines 16224-16482 (inclusive, 1-based)
+
 
 Safe replacement with `sed`
-sed -e 's/mandrake.rz01.deposit-solutions.com/git.prod.infra.deposit/g' index.html > index.html.tmp && mv index.html.tmp index.html
+`sed -e 's/mandrake.rz01.deposit-solutions.com/git.prod.infra.deposit/g' index.html > index.html.tmp && mv index.html.tmp index.html`
+--> here is a shell function to replace literal (non-regex) lines in a file safely:
+```sh
+function replace_line_in_file() {
+  if [[ "$#" -lt 3 ]]; then echo "Usage: $0 <search> <replace> <file>"; exit 1; fi
+  local search="$1"
+  local replace="$2"
+  local file="$3"
+
+  grep -Fxq "$search" "$file" || return 1
+  sed -e "s/^$search\$/$replace/" "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+}
+```
 
 `wrk` (https://github.com/wg/wrk) can be used to load-test APIs
 Example: `wrk -t2 -c100 -d60s -U -R2000 htttp://localhost/my/api`

@@ -72,3 +72,44 @@ From https://makandracards.com/makandra/45964-git-rebase-dependent-feature-branc
 ```bash
 git rebase --onto origin/master <branch you branched off of> <branch you want to rebase>
 ```
+
+## Code
+
+Python:
+```
+def get_git_commit_hash():
+    p = subprocess.run(["git", "rev-parse", "HEAD"],
+                       check=True, stdout=subprocess.PIPE, universal_newlines=True)
+    sha = p.stdout.partition('\n')[0]
+    return sha
+
+
+def get_git_repository(args):
+    p = subprocess.run(["git", "config", "--get", "remote.origin.url"],
+                       check=True, stdout=subprocess.PIPE, universal_newlines=True)
+    url = p.stdout.partition('\n')[0]
+    r = re.compile(r"^.*[:/]([\w-]+/[\w-]+)\.git$")
+    match = r.match(url)
+    if match:
+        return match.group(1)
+    else:
+        logging.error("Could not determine Git repository")
+        sys.exit(1)
+```
+
+Groovy:
+```
+String getGitCommitHash(String repoDir) {
+    return dir(repoDir) {
+        sh(returnStdout: true, script: "git rev-parse").trim()
+    }
+}
+
+String getGitRepositoryUrlPart(String repoDir) {
+    String url = dir(repoDir) {
+        sh(returnStdout: true, script: "git config --get remote.origin.url").trim()
+    }
+    def matcher = url =~ /^.*[:\/]([\w-]+\/[\w-]+)\.git/
+    return matcher[0][1]
+}
+```

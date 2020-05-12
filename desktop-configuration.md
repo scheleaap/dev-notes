@@ -3,7 +3,8 @@
 Things to add to Ansible:
 * Install Spotify: https://linuxconfig.org/how-to-install-spotify-on-ubuntu-18-04-bionic-beaver-linux#h6-1-install-from-ubuntu-software
 * sudo apt install gnome-tweak-tool
-
+* sudo apt-get install ttf-mscorefonts-installer
+* Emoji Picker (see below)
 
 ## Software installation
 
@@ -38,6 +39,16 @@ sudo apt-get update
 sudo apt-get install emojione-picker
 ```
 
+
+## GitHub CLI
+
+```sh
+cd /tmp
+wget https://github.com/cli/cli/releases/download/v0.6.2/gh_0.6.2_linux_amd64.deb
+sudo dpkg -i gh_0.6.2_linux_amd64.deb
+```
+
+
 ## Linuxbrew (Homebrew)
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
@@ -49,6 +60,25 @@ brew install gcc
 
 TODO: PATH=/home/wout/.linuxbrew/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH
 
+
+## Skype
+
+Note: werkt niet
+```sh
+echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
+sudo apt-get update
+sudo apt-get install skypeforlinux -y 
+```
+
+
+## Stack
+
+```bash
+echo 'deb http://mirror.transip.net/stack/software/deb/Ubuntu_18.04/ ./' | sudo tee /etc/apt/  sources.list.d/stack-client.list
+wget -O - https://mirror.transip.net/stack/release.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install stack-client
+```
 
 ## Ubuntu Tweak
 
@@ -181,16 +211,20 @@ user_pref("mailnews.localizedRe", "AW,Aw,ANTW,Antwort");
   * Bron: https://bugzilla.mozilla.org/show_bug.cgi?id=1283086
 * Applicaties in andere workspaces niet in de launcher laten zien:
   `gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true`
+* Enable fractional scaling:
+  ```
+  gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling', 'scale-monitor-framebuffer']"
+  ```
 
 
-## Stack
+## ZSH
 
-```bash
-echo 'deb http://mirror.transip.net/stack/software/deb/Ubuntu_18.04/ ./' | sudo tee /etc/apt/  sources.list.d/stack-client.list
-wget -O - https://mirror.transip.net/stack/release.key | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install stack-client
-```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt-get install fonts-powerline
+in ~/.zshrc:
+* ZSH_THEME="agnoster"
+* plugins=(git kube-ps1)
+* add `prompt_context(){}`
 
 # Other
 

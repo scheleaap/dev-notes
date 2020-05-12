@@ -1,34 +1,43 @@
 # Kubernetes / Minikube Cheat Sheet
 
-Follow logs:
-
-kubectl -n <namespace> logs -f <pod?>
-
-
-
-minikube start --vm-driver kvm2
-minikube ssh
-minikube stop
-minikube delete
-minikube dashboard
-minikube service hello-minikube --url
-
-kubectl cluster-info
-kubectl config view
-cat ~/.minikube/machines/minikube/config.json
-kubectl get nodes
-kubectl describe node
-kubectl get pods
-kubectl expose deployment first-deployment --port=80 --type=NodePort
-export PORT=$(kubectl get svc first-deployment -o go-template='{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}') \
-  && echo "Accessing host01:$PORT" \
-  && curl host01:$PORT
-
-Delete a namespace and everything in it:
-```bash
-kubectl -n local-integrationhub delete --all all
-kubectl delete namespace local-integrationhub
-```
-
+What | Description
+--- | ---
+Follow logs | `kubectl -n <namespace> logs -f <pod>`
 Get the node a pod is running on | `kubectl get pod -o jsonpath='{.items[0].spec.nodeName}'`
 Get the node each pod is running on | `kubectl get pod -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.spec.nodeName}{"\n"}{end}'`
+Instantiate a cronjob | `kubectl create job --from=cronjob/<myjob> <myjob>-$(date +%s)-manual`
+See all pods not running or completed | `kubectl get pod --all-namespaces | grep -Ev '(Running|Completed)'`
+
+Run a pod with `kubectl run` with volumes:
+```sh
+kubectl run -n dev-analyticshub wout-experiment --rm -it --image ubuntu --restart=Never --overrides='
+{
+    "spec": {
+        "containers": [
+            {
+                "stdin": true,
+                "tty": true,
+                "args": [ "bash" ],
+                "name": "wout-experiment",
+                "image": "ubuntu",
+                "volumeMounts": [
+                    {
+                        "mountPath": "/tmp/foo",
+                        "name": "test-volume"
+                    }
+                ]
+            }
+        ],
+        "volumes": [
+            {
+                "name": "test-volume",
+                "emptyDir": {
+                    "sizeLimit": "500Gi"
+                }
+            }
+        ]
+    }
+}
+'
+```
+Source: https://gist.github.com/ctaggart/c372783291162d9c0b8e40441ab14845
