@@ -1,10 +1,6 @@
 # Eigen configuatie
 
-Things to add to Ansible:
-* Install Spotify: https://linuxconfig.org/how-to-install-spotify-on-ubuntu-18-04-bionic-beaver-linux#h6-1-install-from-ubuntu-software
-* sudo apt install gnome-tweak-tool
-* sudo apt-get install ttf-mscorefonts-installer
-* Emoji Picker (see below)
+Installation guide for stuff I do not always need.
 
 ## Software installation
 
@@ -29,15 +25,6 @@ sudo chmod 0755 /usr/local/bin/chromedriver
 ## Commitizen
 
 https://commitizen.github.io/cz-cli/
-
-
-### Emoji Picker
-
-```
-sudo add-apt-repository ppa:ys/emojione-picker
-sudo apt-get update
-sudo apt-get install emojione-picker
-```
 
 
 ## GitHub CLI
@@ -78,15 +65,6 @@ echo 'deb http://mirror.transip.net/stack/software/deb/Ubuntu_18.04/ ./' | sudo 
 wget -O - https://mirror.transip.net/stack/release.key | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install stack-client
-```
-
-## Ubuntu Tweak
-
-```
-wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
-sudo sh -c 'echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/getdeb.list'
-sudo apt-get update
-sudo apt-get install ubuntu-tweak
 ```
 
 ## Vagrant
@@ -156,16 +134,6 @@ Unmounten:
 fusermount -u ~/remote_projects
 ```
 
-## Java
-
-Oracle JDK:
-```
-sudo apt-add-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install oracle-java8-installer
-```
-
-
 ## Nativefier
 
 ```sh
@@ -225,7 +193,3 @@ in ~/.zshrc:
 * ZSH_THEME="agnoster"
 * plugins=(git kube-ps1)
 * add `prompt_context(){}`
-
-# Other
-
-Install Roboto font

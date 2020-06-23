@@ -30,5 +30,17 @@ function replace_line_in_file() {
 }
 ```
 
+Sort the words of each line in a file alphabetically:
+```python
+#!/usr/bin/env python3
+
+import fileinput
+
+for line in fileinput.input():
+    words = line.split()
+    sorted_words = sorted(words)
+    print(' '.join(sorted_words))
+```
+
 `wrk` (https://github.com/wg/wrk) can be used to load-test APIs
 Example: `wrk -t2 -c100 -d60s -U -R2000 htttp://localhost/my/api`
