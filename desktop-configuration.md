@@ -155,34 +155,11 @@ user_pref("mailnews.localizedRe", "AW,Aw,ANTW,Antwort");
 
 
 ## GNOME config
-* You can also use `dconf-editor` to change GNOME settings yourself.
-* Alt-Tab
-  * Goal:
-    * Move the value '<Alt>Tab' from switch-applications to switch-windows
-    * Move '<Shift><Alt>Tab' from switch-applications-backward to switch-windows-backward
-  * Run:
-    ```bash
-    gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
-    gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
-    gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
-    gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
-    ```
-* Disable Alt+F7 and Alt+F8 for window operations:
-  ```bash
-  gsettings set org.gnome.desktop.wm.keybindings begin-move "[]"
-  gsettings set org.gnome.desktop.wm.keybindings begin-resize "[]"
-  ```
-* `gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'`
+
 * Als je Budgie geïnstallerd hebt, dan Ctrl+Alt+Left/Right uitschakelen in de keyboard shortcuts (helemaal onderaan, bij de custom shortcuts)
 * Als je een donker thema gebruikt, dan Firefox de lichte versie laten gebruiken voor widgets:
   * `about:config`: `widget.content.gtk-theme-override` instellen op `Adwaita` of `Pocillo` (bijvoorbeeld)
   * Bron: https://bugzilla.mozilla.org/show_bug.cgi?id=1283086
-* Applicaties in andere workspaces niet in de launcher laten zien:
-  `gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true`
-* Enable fractional scaling:
-  ```
-  gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling', 'scale-monitor-framebuffer']"
-  ```
 
 
 ## ZSH
