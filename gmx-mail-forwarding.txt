@@ -1,0 +1,19 @@
+Dit heb ik ingesteld toen mama in China was:
+
+Toegevoegd bovenaan /etc/ufw/before.rules:
+
+< # NAT table rules
+< *nat
+< :PREROUTING ACCEPT [0:0]
+< :POSTROUTING ACCEPT [0:0]
+<
+< # Forward TCP traffic coming into eth0 on ports 587 and 995 to GMX
+< -A PREROUTING -p tcp -i eth0 --dport 995 -j DNAT --to-destination 212.227.17.169:995
+< -A PREROUTING -p tcp -i eth0 --dport 587 -j DNAT --to-destination 212.227.17.190:587
+<
+< # Maquerade the traffic
+< -A POSTROUTING -j MASQUERADE
+<
+< COMMIT
+<
+<
