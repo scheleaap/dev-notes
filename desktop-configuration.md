@@ -2,6 +2,9 @@
 
 Installation guide for stuff I do not always need.
 
+TODO:
+* Install & configure pyenv
+
 ## Software installation
 
 ## SSH Key
