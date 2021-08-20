@@ -1,0 +1,32 @@
+BASE_DIR=/home/wout/tmp/steward
+STEWARD_DIR=$BASE_DIR/scala-steward
+STEWARD_WORKSPACE_DIR=$BASE_DIR/workspace
+CONFIG_DIR=$BASE_DIR/config
+
+mkdir -p $STEWARD_DIR
+mkdir -p $STEWARD_WORKSPACE_DIR
+mkdir -p $CONFIG_DIR
+
+git clone --depth 1 --branch v0.7.0 https://github.com/fthomas/scala-steward.git $STEWARD_DIR
+git clone git@github.2rioffice.com:Riskident/scala-steward-riskident.git $CONFIG_DIR
+
+cat > $BASE_DIR/askpass.sh <<EOT
+#!/bin/bash
+echo <insert your GitHub token here>
+EOT
+chmod +x $BASE_DIR/askpass.sh
+
+export JAVA_OPTS='-XX:+CMSClassUnloadingEnabled -XX:MaxMetaspaceSize=2048m -Xmx4G -Xss16M'
+export SBT_OPTS=$JAVA_OPTS
+
+cd $STEWARD_DIR
+sbt -v "core/run
+--disable-sandbox
+--do-not-fork
+--workspace $STEWARD_WORKSPACE_DIR
+--repos-file $CONFIG_DIR/repos.md
+--vcs-api-host https://github.2rioffice.com/api/v3
+--vcs-login wout-maaskant
+--git-author-email wout.maaskant@riskident.com
+--git-ask-pass $BASE_DIR/askpass.sh
+"
