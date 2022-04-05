@@ -1,4 +1,15 @@
-View all operations that have been running for at least 5 secons | `db.currentOp().inprog.forEach( function(op) { if(op.secs_running > 5) printjson(op); } )`
+View all operations that have been running for at least 5 seconds:
+`db.currentOp().inprog.forEach( function(op) { if(op.secs_running > 5) printjson(op); } )`
+
+Count distinct values:
+* For for small result sizes: `db.getCollection("my-collection").distinct("foo.bar.id")`
+* Otherwise:
+    ```js
+    db.getCollection("label-added").aggregate([
+    { $group : { _id : "$label.transactionId" } },
+    { $group: { _id: null, n: { $sum: 1 } } }
+    ])
+    ```
 
 Aggregation pipeline:
 ```js
