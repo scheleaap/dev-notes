@@ -9,7 +9,8 @@ Command | Description
 `git checkout 'git rev-list -n 1 --before="2009-07-27 13:37" master'` | Check out by date
 `git remote prune origin` | Remove local branches that do not exist in origin
 `git config user.name "scheleaap" && git config user.email "git@wout.maaskant.info"` | Set user & email
-`git merge --strategy ours` | Merge resolving any conflicts with 'our' version
+`git merge <branch> --strategy ours` | Merge a branch into the current branch, but completely ignore all of its changes
+`git merge <branch> --strategy recursive -X ours` | Merge a branch into the current branch and resolve merge conflicts with our side
 
 
 ## Cherry pick all commits from a branch
