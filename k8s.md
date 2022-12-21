@@ -41,3 +41,26 @@ kubectl run -n dev-analyticshub wout-experiment --rm -it --image ubuntu --restar
 '
 ```
 Source: https://gist.github.com/ctaggart/c372783291162d9c0b8e40441ab14845
+
+## Kubeconfig management
+
+Merging multiple files into one config file:
+```sh
+vault_uuid=pvdicrklimc4is66zcok44wyca
+mkdir $HOME/.kube/config.d
+for uuid in $(op list items --vault $vault_uuid | jq '.[].uuid' --raw-output); do
+    name=$(op get item $uuid | jq '.overview.title' --raw-output | cut -d' ' -f3)
+    op get item $uuid | jq '.details.sections[0].fields[] | select(.t=="~/.kube/config").v' --raw-output > $HOME/.kube/config.d/$name
+done
+kubeconfigs=""
+for f in $(ls $HOME/.kube/config.d); do
+    kubeconfigs+="$HOME/.kube/config.d/$f:"
+done
+KUBECONFIG=$kubeconfigs kubectl config view --flatten > $HOME/.kube/config
+chmod 600 $HOME/.kube/config
+```
+
+Extracting a context:
+```sh
+kubectl config view --minify --flatten --context=minikube
+```
