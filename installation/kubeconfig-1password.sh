@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# This is a rather minimal example Argbash potential
-# Example taken from http://argbash.readthedocs.io/en/stable/example.html
+# Download Kubernetes cluster configs from 1Password and merge them.
 #
 # ARG_HELP([Download Kubernetes cluster configs from 1Password and merge them])
 # ARG_POSITIONAL_SINGLE([op-account],[The 1Password account id],[])
