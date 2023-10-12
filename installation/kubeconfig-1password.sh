@@ -111,11 +111,11 @@ fi
 eval $(op signin $_arg_op_account)
 
 # Download and write all configurations
-mkdir $HOME/.kube/config.d
+mkdir -p $HOME/.kube/config.d
 for uuid in $(op list items --vault $_arg_op_vault | jq '.[].uuid' --raw-output); do
     title=$(op get item $uuid | jq '.overview.title' --raw-output)
-    if [[ $(echo "$title" | grep "kubeconfig team") ]]; then
-        name=$(echo "$title" | cut -d' ' -f3)
+    if [[ $(echo "$title" | grep "kubeconfig: oidc") ]]; then
+        name=$(echo "$title" | cut -d' ' -f2)
         echo "Getting $name"
         op get item $uuid | jq '.details.sections[0].fields[] | select(.t=="~/.kube/config").v' --raw-output > $HOME/.kube/config.d/$name
     else
