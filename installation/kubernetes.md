@@ -6,7 +6,7 @@ Latest version:
 ```sh
 version=$(curl -Ls https://api.github.com/repos/txn2/kubefwd/releases/latest | jq ".tag_name" --raw-output)
 wget -q "https://github.com/txn2/kubefwd/releases/download/${version}/kubefwd_amd64.deb" -O /tmp/kubefwd-${version}.deb \
-&& dpkg --install /tmp/kubefwd-${version}.deb
+&& sudo dpkg --install /tmp/kubefwd-${version}.deb
 ```
 
 ## kubelogin
