@@ -15,8 +15,10 @@ Run a producer:
 
 Run a consumer:
 ```
-./kafka-console-producer.sh --bootstrap-server localhost:9092 --producer.config /tmp/client.properties --topic my-topic
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --producer.config /tmp/client.properties --topic my-topic --group my-group
 ```
+
+The topic name and consumer group name might have to start with a certain prefix (depending on your access rights).
 
 Contents of `client.properties`:
 ```
