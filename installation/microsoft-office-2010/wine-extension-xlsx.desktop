@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Microsoft Excel 2010
+Type=Application
+Exec=env LC_ALL=nl_NL.utf8 /usr/share/playonlinux/playonlinux --run "Microsoft Excel 2010" %F
+Icon=/home/wout/.PlayOnLinux//icones/full_size/Microsoft Excel 2010
+NoDisplay=true
+StartupWMClass=EXCEL.EXE
+MimeType=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
