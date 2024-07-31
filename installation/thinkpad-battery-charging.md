@@ -1,3 +1,5 @@
+# ThinkPad battery charging
+
 ```sh
 sudo apt install tlp
 
@@ -9,4 +11,10 @@ STOP_CHARGE_THRESH_BAT1=80
 EOF
 
 sudo tlp start
+```
+
+To charge to the threshold regardless the current charge
+```sh
+sudo tlp chargeonce BAT0
+sudo tlp chargeonce BAT1
 ```
