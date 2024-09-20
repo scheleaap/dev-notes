@@ -14,6 +14,7 @@ Command | Description
 `tail -n+1` | Skip first line
 `sed -n '16224,16482p;16483q' source > target` | Print lines 16224-16482 (inclusive, 1-based)
 `iptstate` | Show open ports/connections
+`... | xargs -I {} echo "{} is the item"` | Use `-I {}` to define a placeholder. This implies `-L 1` (1 argument per command line).
 
 
 Safe replacement with `sed`
