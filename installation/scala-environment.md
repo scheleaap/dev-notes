@@ -1,9 +1,15 @@
 # Scala environment
 
+## JDK
+
+```sh
+sudo apt install openjdk-21-jdk-headless
+```
+
 ## Coursier
 
 ```sh
-curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > ~/.local/bin/cs && \
+curl -fL "https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz" | gzip -d > ~/.local/bin/cs && \
   chmod +x ~/.local/bin/cs
 ```
 
