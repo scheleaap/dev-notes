@@ -16,6 +16,7 @@ Command | Description
 `iptstate` | Show open ports/connections
 `... | xargs -I {} echo "{} is the item"` | Use `-I {}` to define a placeholder. This implies `-L 1` (1 argument per command line).
 `wget --no-host-directories --force-directories --input-file=urls.txt` | Download a list of URLs, keeping the directory structure
+`sudo dd if=/tmp/ubuntu-24.04.1-desktop-amd64.iso of=/dev/sdb1 bs=4M` | Copy ISO to USB drive
 
 
 Safe replacement with `sed`
