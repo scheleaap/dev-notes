@@ -5,7 +5,7 @@ http://www.xe.com/ibancalculator/sample/?ibancountry=the-netherlands
 ## Echte
 
 Land | IBAN | BIC
-- | - | -
+--- | --- | ---
 DE / Duitsland | DE79850503003100180568<br>DE89370400440532013000<br>DE86370400440532014800 | OSDDDE81XXX<br>COBADEFFXXX<br>COBADEFFXXX
 NL / Nederland | NL91ABNA0417164300 | ABNANL2A
 GB / Verenigd Koninkrijk | GB29NWBK60161331926819 | NWBKGB21
