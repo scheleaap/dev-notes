@@ -21,17 +21,19 @@ Main
 .. list-table::
    :header-rows: 1
 
-   * - 
+   * -
      - Python
      - Scala
      - SQL
    * - Common imports
-     - .. code:: python
+     -
+       .. code:: python
 
           from pyspark.sql import *
           import pyspark.sql.functions as F
           from pyspark.sql.types import *
-     - .. code:: scala
+     -
+       .. code:: scala
 
           import org.apache.spark.sql._
           import org.apache.spark.sql.functions._
@@ -84,7 +86,8 @@ Main
      - *See Python*
      - ``... LIMIT 10``
    * - Read CSV
-     - .. code:: python
+     -
+       .. code:: python
 
           df = (
               spark.read.format("csv")
@@ -101,7 +104,8 @@ Main
               .schema("id int, name string")
               .load("persons-*.csv")
           )
-     - .. code:: scala
+     -
+       .. code:: scala
 
           df = spark.read.format("csv")
             .options(
@@ -127,7 +131,7 @@ Main
      - | ``df.c1``
        | ``df["c1"]``
        | ``col("c1")``
-       
+
        Benefits of ``col()``:
 
        * It can be re-used as it's not df specific
@@ -155,7 +159,8 @@ Main
    * - Join
      - ``df1.join(df2, on=["c1", "c2"], how="left")``
      - ``df1.join(df2, usingColumns=Seq("c1", "c2"), joinType="left")``
-     - .. code:: sql
+     -
+       .. code:: sql
 
           SELECT
             ...
@@ -168,17 +173,48 @@ Main
      -
 
 
+Benchmarking
+------------
+
+No-op write:
+
+.. code:: python
+
+   df.write.format("noop").mode("overwrite").save()
+
+Useful settings for benchmarking:
+
+.. code:: scala
+
+   // Disable IO cache so as to minimize side effects
+   spark.conf.set("spark.databricks.io.cache.enabled", false)
+
+   // Disable all Spark 3 features
+   spark.conf.set("spark.sql.adaptive.enabled", false)
+   spark.conf.set("spark.sql.adaptive.skewedJoin.enabled", false)
+   spark.conf.set("spark.sql.adaptive.localShuffleReader.enabled", false)
+   spark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", false)
+
+   // Disable the advanced features that might alter our final result
+   spark.conf.set("spark.databricks.delta.optimizeWrite.enabled", false)
+   spark.conf.set("spark.databricks.delta.autoCompact.enabled", false)
+
+   // Disable broadcasting to preclude unwanted optimizations
+   spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+
+
 Schema Definition / DataTypes
 -----------------------------
 
 .. list-table::
    :header-rows: 1
 
-   * - 
+   * -
      - Python
      - Scala
    * - Small differences when defining a schema
-     - .. code:: python
+     -
+       .. code:: python
 
           schema = StructType(
               [
@@ -204,7 +240,7 @@ References
 .. list-table::
    :header-rows: 1
 
-   * - 
+   * -
      - Python
      - Pandas
      - Scala
