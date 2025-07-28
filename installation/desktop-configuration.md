@@ -6,11 +6,6 @@ Installation guide for stuff I do not always need.
 
 Empty.
 
-## SSH Key
-
-```
-ssh-keygen -t ed25519 -C "wout-$(date '+%Y%m%d')-rsa4096"
-```
 
 ## Chromedriver
 
