@@ -235,6 +235,11 @@ Schema Definition / DataTypes
           )
 
 
+PySpark tips
+------------
+
+* https://www.mungingdata.com/pyspark/chaining-dataframe-transformations/#function-composition-with-cytoolz
+
 References
 ----------
 .. list-table::
