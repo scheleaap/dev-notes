@@ -150,9 +150,10 @@ When working with external services (e.g. external APIs, databases):
 
 ## Documentation
 
-* Every public function/method that is not a unit test must be documented with a docstring.
-* When changing a function or class, also ensure its documentation is up-to-date after making the change.
+* Every public class, function and method that is not a unit test must be documented with a docstring.
+* When changing a class, function or method, you must ensure its documentation is up-to-date after making the change.
 * Use Sphinx' reStructuredText format as docstring format.
+* Docstrings should describe the function of the documented class, function or method. Docstrings should not document the followed coding style.
 
 ## Testing
 
@@ -193,6 +194,7 @@ When working with external services (e.g. external APIs, databases):
     except SpecificError as e:
         raise SubsystemError("Concise message") from e
     ```
+* When handling errors, code must EITHER log the error OR raise it again, NOT both.
 
 ## Naming
 
