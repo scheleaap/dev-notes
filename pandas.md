@@ -1,6 +1,9 @@
 # Pandas
 
 Display all rows: `with pd.option_context("display.max_rows", None)`
+
+Value counts with ratios: `df["col"].value_counts().to_frame("count").assign(ratio=lambda df: df["count"] / df["count"].sum())`
+
 ## Visualization with Plotly
 
 General, center title: `.update_layout(title_x=0.5)`
