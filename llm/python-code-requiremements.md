@@ -1,4 +1,4 @@
-# Code style and code organization Requirements for Python code
+# Code style and code organization requirements for Python code
 
 ## Project management
 
