@@ -4,10 +4,12 @@ Installation guide for stuff I do not always need.
 
 ## Software installation
 
+Empty.
+
 ## SSH Key
 
 ```
-ssh-keygen -t rsa -b 4096 -C "wout-$(date '+%Y%m%d')-rsa4096"
+ssh-keygen -t ed25519 -C "wout-$(date '+%Y%m%d')-rsa4096"
 ```
 
 ## Chromedriver
@@ -46,16 +48,6 @@ brew install gcc
 ```
 
 TODO: PATH=/home/wout/.linuxbrew/Homebrew/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH
-
-
-## Skype
-
-Note: werkt niet
-```sh
-echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/skypeforlinux.list
-sudo apt-get update
-sudo apt-get install skypeforlinux -y 
-```
 
 
 ## Vagrant
