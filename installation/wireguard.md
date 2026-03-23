@@ -14,17 +14,18 @@ First, define the following variables:
 network_interface=eth0
 server_port=51822  # Default: 51820
 server_ip4=xxx.xxx.xxx.xxx
+private_ipv4_subnet="10.0.0."
+private_ipv6_subnet="fda5:d56a:0a9c::"
 ```
 
 Then, run the following commands:
+
+Configure server:
 ```sh
 sudo apt install -y wireguard qrencode
 sudo chmod 700 /etc/wireguard
 server_private_key="$(sudo wg genkey | sudo tee /etc/wireguard/server_private.key)"
 server_public_key="$(sudo cat /etc/wireguard/server_private.key | wg pubkey | sudo tee /etc/wireguard/server_public.key)"
-dns_servers="$(resolvectl dns eth0 | cut -d' ' -f4)"
-private_ipv4_subnet="10.0.0."
-private_ipv6_subnet="fda5:d56a:0a9c::"
 sudo tee /etc/wireguard/wg0.conf > /dev/null <<EOF
 [Interface]
 Address = ${private_ipv4_subnet}1/24, ${private_ipv6_subnet}1/64
@@ -38,8 +39,13 @@ PreDown = iptables -t nat -D POSTROUTING -o ${network_interface} -j MASQUERADE
 ListenPort = ${server_port}  # Default: 51820
 
 EOF
+```
 
-for name_with_ip_suffix in "wout,2" "wim,3" "rian,4"; do
+Configure clients (note: this code adds lines to `/etc/wireguard/wg0.conf`):
+```sh
+server_public_key="$(sudo cat /etc/wireguard/server_public.key)"
+dns_servers="$(resolvectl dns eth0 | cut -d' ' -f4)"
+for name_with_ip_suffix in "wout,2" "wim,3" "rian,4" "anna,5"; do
 #for name_with_ip_suffix in "wout,2"; do
     name=$(echo "${name_with_ip_suffix}" | cut -d, -f1)
     ip_suffix=$(echo "${name_with_ip_suffix}" | cut -d, -f2)
@@ -70,7 +76,9 @@ EOF
     sudo cat /etc/wireguard/client_${name}.conf | qrencode -t ansiutf8 | sudo tee /etc/wireguard/client_${name}_qr.txt
     sudo cat /etc/wireguard/client_${name}.conf | sudo qrencode -o /etc/wireguard/client_${name}_qr.png
 done
+```
 
+```sh
 sudo systemctl start wg-quick@wg0.service
 sudo systemctl enable wg-quick@wg0.service
 sudo systemctl status wg-quick@wg0.service
@@ -83,6 +91,12 @@ sudo iptables -t nat -A POSTROUTING -s ${private_ipv4_subnet}0/24 -o ${network_i
 sudo mkdir -p /etc/iptables
 sudo iptables-save | sudo tee /etc/iptables/rules.v4
 ```
+
+## Support
+
+1. On server: `cp /etc/wireguard/client_*.conf /etc/wireguard/client*_qr* /tmp`
+1. On server: `chown xxx:xxx /tmp/client_*`
+1. On scheleaapub: `scp "xxx@xxx:/tmp/client_*" /home/wout/Seafile/vpn/xxx/WireGuard`
 
 ## Sources
 
