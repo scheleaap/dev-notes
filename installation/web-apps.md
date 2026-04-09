@@ -1,19 +1,6 @@
 # Web apps
 
-Add files like these to `/home/wout/.local/share/applications`:
-
-```
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Type=Application
-Encoding=UTF-8
-Name=Microsoft Teams
-Exec=chromium-browser --profile-directory=Default --ignore-profile-directory-if-not-exists --app=https://teams.microsoft.com/v2/
-Icon=/home/wout/Seafile/wout/app-icons/microsoft-teams.png
-URL=https://teams.microsoft.com/v2/
-Comment=Open https://teams.microsoft.com/v2/ in an app window.
-```
+Add files like these to `~/.local/share/applications`.
 
 ## Google Meet
 
@@ -25,8 +12,38 @@ Type=Application
 Encoding=UTF-8
 Name=Team
 Exec=chromium-browser --app=https://meet.google.com/aaa-bbbb-ccc --new-window
-Icon=google-meet.png
+Icon=XXX/app-icons/google-meet.png
 Terminal=false
 ```
 
 Store the icon in `~/.local/share/icons`.
+
+## Microsoft Teams
+
+```
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+Name=Microsoft Teams
+Exec=chromium-browser --profile-directory=Default --ignore-profile-directory-if-not-exists --app=https://teams.microsoft.com/v2/
+Icon=XXX/app-icons/microsoft-teams.png
+URL=https://teams.microsoft.com/v2/
+Comment=Open https://teams.microsoft.com/v2/ in an app window.
+```
+
+## Slack
+
+```
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+Name=Slack (web app)
+Exec=chromium-browser --profile-directory=Default --ignore-profile-directory-if-not-exists --app=https://app.slack.com/client/AAAAAAAAAAA
+Icon=XXX/app-icons/slack.svg
+URL=https://app.slack.com/client/AAAAAAAAAAA
+Comment=Open https://app.slack.com/client/AAAAAAAAAAA in an app window.
+```
