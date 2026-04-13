@@ -10,11 +10,13 @@ Whether in plan mode or not: before starting any task or making any changes, alw
 
 ## When writing code
 
-Do not modify any code unrelated to your task without asking for my explicit permission.
-Do not add/remove code not relevant to the task.
-Do not write logic that is not strictly necessary for the task.
-If you run into problems that you are not allowed to fix, ask the user for help.
-If you detect likely test bugs, stop whatever you were doing and inform the user. This is more important than continuing your task.
+Focus. Do not add/remove/modify any code unrelated to your task without asking the user for permission. Do not write logic that is not strictly necessary for the task.
+
+Preserve comments. As a rule, preserve code comments when modifying code. When in doubt whether to modify or delete a comment, ask the user.
+
+Warn about bugs. If you detect likely test bugs, stop whatever you were doing and inform the user. This is more important than continuing your task.
+
+Seek help. If you run into problems that you are not allowed to fix according to your instructions, ask the user for help.
 
 Follow SOLID principles.
 
