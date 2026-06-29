@@ -6,8 +6,9 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 sudo apt update && sudo apt install terraform
 ```
 
-## CDKTF
+## CDKTN (fka CDKTF)
 
 ```sh
-npm install --global cdktf-cli@latest
+# npm install --global cdktf-cli@latest
+npm install --global cdktn-cli@latest
 ```
