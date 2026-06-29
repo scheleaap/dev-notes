@@ -140,6 +140,10 @@ When working with external services (e.g. external APIs, databases):
     ```
 * Keep related tests together. Sort related tests from simple to complex.
 * Generally, tests should test public methods and classes, not private ones. If you discover tests that test private methods or classes, rewrite them instead of deleting them.
+* Names of test functions must follow these rules:
+  * If there is exactly 1 test for a unit under test, the test may be called `test_<function name>`.
+  * If all tests in a file with tests test the same unit *and* the unit is the only unit in the file, the test may be called `test_<specifier>`.
+  * In all other cases, unit test names must be named `test_<unit name>__<specifier>`.
 
 ## Typing
 
