@@ -1,5 +1,7 @@
 # AWS
 
+## CLI
+
 Install the CLI:
 ```sh
 cd "$(mktemp -d)"
@@ -13,3 +15,11 @@ Configure profiles:
 
 To set a default profile:
 `export AWS_PROFILE=AdministratorAccess-123456789012`
+
+## Lambda RIE
+
+```sh
+curl -Lo ~/.local/bin/aws-lambda-rie \
+  https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie \
+  && chmod +x ~/.local/bin/aws-lambda-rie
+```
