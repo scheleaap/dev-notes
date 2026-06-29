@@ -4,7 +4,8 @@ Installation guide for stuff I do not always need.
 
 ## Software installation
 
-Empty.
+* `sudo apt install direnv`
+* `sudo apt install elvish`
 
 
 ## Chromedriver

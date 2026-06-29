@@ -61,7 +61,7 @@ Source: https://docs.snowflake.com/en/developer-guide/odbc/odbc-linux
 
     conn_str = (
         "Driver=SnowflakeDSIIDriver;"
-        "Server=audiomee-prod.snowflakecomputing.com;"
+        "Server=foofoo.snowflakecomputing.com;"
         "uid=wout;"
         "authenticator=snowflake_jwt;"
         "priv_key_file=/home/wout/Documents/keys/snowflake_wout_rsa_key.p8;"
