@@ -6,6 +6,12 @@
 npm install -g @anthropic-ai/claude-code
 ```
 
+Plugins:
+```
+/plugin marketplace add albertnahas/claude-core-values
+/plugin install claude-core-values@claude-core-values
+```
+
 ## Gemini
 ```sh
 # As of 2025-07-28 does not work
