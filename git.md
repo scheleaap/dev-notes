@@ -75,6 +75,50 @@ From https://makandracards.com/makandra/45964-git-rebase-dependent-feature-branc
 git rebase --onto origin/master <branch you branched off of> <branch you want to rebase>
 ```
 
+## Clone repository and change author & committer
+
+Assumptions:
+* `git-filter-repo` is installed
+* `git init . && git br -m main` has been run in the target repo.
+
+```sh
+SOURCE_DIR="<source dir>"
+TARGET_DIR="<target dir>"
+
+TEMP_REPO_DIR="$(mktemp -d)"
+
+# Clone source repository to temporary repository
+# `--no-local` ensures any unreachable objects (e.g. things you removed by resetting HEAD) are not transferred
+git clone --no-local "$SOURCE_DIR" "$TEMP_REPO_DIR"
+
+# Rewrite commits with new author & committer
+git -C "$TEMP_REPO_DIR" filter-repo \
+    --name-callback  'return b"New User"' \
+    --email-callback 'return b"newuser@example.com"'
+
+# Or, with a mapping file:
+# TEMP_MAILMAP_FILE="$(mktemp)"
+# printf 'Old User <olduser@example.com> New User <newuser@example.com>\n' > "$TEMP_MAILMAP_FILE"
+# git -C "$TEMP_REPO_DIR" filter-repo --mailmap "$TEMP_MAILMAP_FILE"
+# 
+# Or, without git-filter-repo:
+# git -C "$TEMP_REPO_DIR" filter-branch -f --env-filter '
+#     export GIT_AUTHOR_NAME="Old User"
+#     export GIT_AUTHOR_EMAIL="olduser@example.com"
+#     export GIT_COMMITTER_NAME="New User"
+#     export GIT_COMMITTER_EMAIL="newuser@example.com"
+# ' -- --branches
+
+# Transfer rewritten commits to target repository
+git -C "$TARGET_DIR" fetch "$TEMP_REPO_DIR" refs/heads/main
+git -C "$TARGET_DIR" reset --hard FETCH_HEAD
+```
+
+If you need to transfer additional commits later, you can just rerun these lines except for the last. Change the last line to:
+```sh
+git -C "$TARGET_DIR" merge --ff-only FETCH_HEAD
+```
+
 ## Code
 
 Python:
