@@ -22,7 +22,11 @@ echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codenam
 
 ## Configuration
 
-First, enable custom CSS (e.g. https://www.reddit.com/r/FirefoxCSS/wiki/index/tutorials/).
+Based on https://www.reddit.com/r/FirefoxCSS/wiki/index/tutorials/:
+
+1. Enable custom CSS
+2. Create `chrome/userChrome.css` and `chrome/userContent.css` in the profile directory
+3. Add the following to `chrome/userChrome.css`:
 
 ```css
 /* TAB GROUP COLORS
