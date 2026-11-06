@@ -1,10 +1,6 @@
 # Scala environment
 
-## JDK
-
-```sh
-sudo apt install openjdk-21-jdk-headless
-```
+_See also: [JDK](./jdk.md)_
 
 ## Coursier
 

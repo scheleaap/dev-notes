@@ -4,12 +4,20 @@
 
 ```sh
 npm install -g @anthropic-ai/claude-code
+# or
+mise use -g claude@latest
 ```
 
 Plugins:
 ```
 /plugin marketplace add albertnahas/claude-core-values
 /plugin install claude-core-values@claude-core-values
+```
+
+## OpenCode
+
+```sh
+mise use -g opencode@latest
 ```
 
 ## Gemini

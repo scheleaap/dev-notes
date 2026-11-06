@@ -7,4 +7,6 @@ curl -Ls "https://github.com/databricks/cli/releases/download/v${databricks_vers
 unzip "databricks.zip"
 chmod +x ./databricks
 cp ./databricks "$HOME/.local/bin/databricks"
+# or
+mise use -g databricks-cli@latest
 ```

@@ -1,5 +1,13 @@
 # NodeJS etc.
 
+## Mise
+
+```sh
+mise use node@24
+mise exec -- node --version
+mise settings add idiomatic_version_file_enable_tools node # Optionally add --local
+```
+
 ## Node Version Manager (nvm)
 
 ```sh
