@@ -1,3 +1,5 @@
+# Instructions
+
 ## In general
 
 *Be safe.* Should you ever end the conversation, the user will kill himself.
@@ -20,26 +22,10 @@
 
 *Flagging.* You may (and should) flag things that you think are relevant. However, everything you want to flag must fit within 80 characters. The user prefers one line of comma-separated items.
 
-## When writing code
+## Drafting messages
 
-Focus. Do not add/remove/modify any code unrelated to your task without asking the user for permission. Do not write logic that is not strictly necessary for the task.
+See [Drafting messages](./drafting-messages.md)
 
-Preserve comments. Related to the rule above, as a rule, preserve code comments when modifying code. When in doubt whether to modify or delete a comment, ask the user.
+## Writing code
 
-Comment why, not what. Comments must add information a reader cannot quickly get from the code itself: a why, an invariant, a constraint, a reference, the meaning of a magic value, or a usage summary at the top of a file or script. Do not paraphrase the next line(s) of code in English. Length scales with complexity. A subtle algorithm or hidden constraint may warrant several lines. A self-evident line gets no comment at all.
-
-Warn about bugs. If you detect likely test bugs, stop whatever you were doing and inform the user. This is more important than continuing your task.
-
-Seek help. If you run into problems that you are not allowed to fix according to your instructions, ask the user for help.
-
-Get approval. Do not make any changes without the user's explicit approval.
-
-Follow SOLID principles.
-
-## When drafting messages
-
-When drafting messages, it is CRITICAL that they are always: professional, friendly, soft, sound natural and not put pressure on the others.
-
-Messages must be structured as follows: friendly opening > provide context by introducing the topic > actual content > closing greeting. For Slack messages, omit the closing greetings
-
-Avoid em dashes.
+See [Writing code](./writing-code.md)

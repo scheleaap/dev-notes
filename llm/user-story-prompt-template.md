@@ -1,10 +1,3 @@
-Write user story to: Set up Snowflake warehouses
-
-Requirements:
-* One or more warehouses must be set up
-* Use cases: running interactive SQL queries, running interactive notebooks, serving Power BI queries
-* Permissions to use the warehouse can be assigned to users and/or groups
-
 Acceptance criteria must be formulated to state the expected outcome, not the steps to implement the outcome. Focus on criteria from the user's perspective.
 
 Include our definition of done verbatim:

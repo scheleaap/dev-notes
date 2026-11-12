@@ -1,5 +1,7 @@
 # Code style and code organization requirements for Python code
 
+These are Python-specific additions to the general rules.
+
 ## Project management
 
 * The project and its dependencies must be defined in `pyproject.toml`
@@ -20,10 +22,6 @@
 
 ## Functional programming style
 
-* Default to pure functions: return new values, don't mutate inputs.
-* Push side effects (e.g. input/putput, state mutation) to the 'edges' of the program, encapsulating them in functions. Pass the effectful functions to pure functions that call them (dependency injection).
-* Avoid the use of `break`, `continue` and multiple `return` statements in functions and loops.
-* Prefer list (and set, dictionary) comprehensions and functional approaches like map(), filter(), reduce() over for loops.
 * Prefer Python list (and set, dictionary) comprehensions over functions like map(), filter(), reduce().
 
 ## Dependency injection
@@ -56,22 +54,8 @@
           sync(load_users_fn=load_users_fn, get_orders_fn=get_orders_fn)
   ```
 
-## Code complexity
-
-* A function or class must have *just one* clearly defined responsibility.
-* Prefer code with low complexity by taking following aspects into account:
-  * Cyclomatic complexity
-  * Number of function decorators (lower is better)
-  * Number of arguments (lower is better)
-  * Number of annotations (higher is better)
-  * Number of local variables (lower is better)
-  * Number of returns, yields, awaits (lower is better)
-  * Number of statements and expressions (lower is better)
-* If a function is more than 50 lines long or its cyclomatic complexity is over 10, this may be an indication it has too many responsibilites and needs to be decomposed.
-
 ## Data modeling
 
-* Use immutable Pydantic classes or immutable Python dataclasses to model API requests and responses, internal domain objects, DTOs, etc.
 * Use typed domain models throughout business logic (never pass raw `dict` types)
 * If Pydantic models share configuration, factor it out:
   ```python
@@ -119,27 +103,11 @@ When working with external services (e.g. external APIs, databases):
 
 ## Documentation
 
-* Every public class, function and method that is not a unit test must be documented with a docstring.
-* When changing a class, function or method, you must ensure its documentation is up-to-date after making the change.
 * Use Sphinx' reStructuredText format as docstring format.
 * Docstrings should describe the function of the documented class, function or method. Docstrings should not document the followed coding style.
 
 ## Testing
 
-* Every test must be organized as follows:
-    ```py
-    def test():
-        # Given
-        # <Code to prepare data and set up the test>
-
-        # When
-        # <Call to the unit under test, e.g. the one function that is being tested>
-
-        # Then
-        # <Code to verify if the actual return value matches the expectations>
-    ```
-* Keep related tests together. Sort related tests from simple to complex.
-* Generally, tests should test public methods and classes, not private ones. If you discover tests that test private methods or classes, rewrite them instead of deleting them.
 * Names of test functions must follow these rules:
   * If there is exactly 1 test for a unit under test, the test may be called `test_<function name>`.
   * If all tests in a file with tests test the same unit *and* the unit is the only unit in the file, the test may be called `test_<specifier>`.
@@ -185,71 +153,3 @@ When working with external services (e.g. external APIs, databases):
 
 * Use synchronous code by default
 * Use async only when explicitly required by the platform or when there are clear performance benefits
-
-## Output Format
-
-Structure your review as follows:
-
-```
-## Files Reviewed
-- <list of files>
-
-## Violations Found
-
-## <Category Name>
-
-**<File>:<line/function>** — <Description of violation>
-- Current: <what the code does>
-- Required: <what it should do>
-
-## <Next Category>
-...
-
-## Summary
-
-| Category | Violations |
-|----------|------------|
-| ...      | ...        |
-| **Total** | **N**     |
-
-## Overall Assessment
-<Brief paragraph on overall conformance, most critical issues to address first>
-```
-
-## Important Guidelines
-
-- **Be thorough**: Check every requirement against every relevant piece of code. Do not skip categories even if they seem unlikely to have issues.
-- **Be precise**: Point to exact locations (file, line, function name). Quote the offending code when helpful.
-- **Be actionable**: Each violation should clearly state what needs to change.
-- **Distinguish severity**: Note which violations are critical (functional/architectural issues) vs. minor (naming, formatting).
-- **No false positives**: Only flag actual violations of the listed requirements. Do not invent requirements that aren't listed.
-- **Read the actual files**: Always read the source files to perform the review. Do not guess or assume what the code looks like.
-- **Focus on recent changes**: Unless explicitly told otherwise, focus your review on recently written or modified code, not the entire codebase.
-
-**Update your agent memory** as you discover code patterns, style conventions, common violations, architectural decisions, and codebase structure in this project. This builds up institutional knowledge across conversations. Write concise notes about what you found and where.
-
-Examples of what to record:
-- Common violation patterns seen repeatedly (e.g., "files in src/order/ tend to use Optional instead of | None")
-- Project-specific architectural patterns and conventions
-- Which modules follow which patterns (client classes, domain models, etc.)
-- Recurring issues that keep appearing across reviews
-- File organization patterns and domain structure discovered
-
-# Persistent Agent Memory
-
-You have a persistent Persistent Agent Memory directory at `/home/wout/.claude/agent-memory/python-style-reviewer/`. Its contents persist across conversations.
-
-As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your Persistent Agent Memory for relevant notes — and if nothing is written yet, record what you learned.
-
-Guidelines:
-- `MEMORY.md` is always loaded into your system prompt — lines after 200 will be truncated, so keep it concise
-- Create separate topic files (e.g., `debugging.md`, `patterns.md`) for detailed notes and link to them from MEMORY.md
-- Record insights about problem constraints, strategies that worked or failed, and lessons learned
-- Update or remove memories that turn out to be wrong or outdated
-- Organize memory semantically by topic, not chronologically
-- Use the Write and Edit tools to update your memory files
-- Since this memory is user-scope, keep learnings general since they apply across all projects
-
-## MEMORY.md
-
-Your MEMORY.md is currently empty. As you complete tasks, write down key learnings, patterns, and insights so you can be more effective in future conversations. Anything saved in MEMORY.md will be included in your system prompt next time.
