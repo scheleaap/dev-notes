@@ -5,7 +5,7 @@ Decisions are documented in decision records.
 The general structure for decision records should be like this:
 
 ```md
-# <Title>
+# <Title: concise statement of the topic>
 
 ## Background
 
@@ -17,11 +17,11 @@ _Optional section. Not needed most of the time, but can sometimes be useful._
 
 ## Problem / Question
 
-_Describe the problem that needs a solution or the question that needs an answer. It's important that the description can be understood based on the background knowledge and context given in the previous section (i.e. that it does not refer to concepts not defined in the document). If there is more than one problem / question, list them in a structured way. Choose "Problem" or "Question" as title._
+_Describe the problem that needs a solution or the question that needs an answer. It's important that the description can be understood based on the background knowledge and context given in the previous sections (i.e. that it does not refer to concepts not defined in the document). If there is more than one problem / question, list them in a structured way. Phrase the problem / question neutrally: don't presuppose the shape of the solution. Choose "Problem" or "Question" as heading._
 
 ## Alternatives
 
-_Optional section. Describe the alternatives that were considered. If the alternatives are self-explanatory, this section may be folded into the "Evaluation" section._
+_Optional section. Describe the alternatives that were considered. If the alternatives are self-explanatory, this section may be folded into the "Evaluation" section. Regardless of where the alternatives are described, each alternative must state how it solves / answers each stated problem / question._
 
 ### Rejected alternatives
 
@@ -35,7 +35,7 @@ _Optional section. Describe the criteria against which the alternatives were eva
 
 _Compare the alternatives against the evaluation criteria. The most obvious and generally easy to read form is a table: evaluation criteria on the vertical axis, alternatives on the horizontal axis._
 
-_Guidelines for tables: Avoid a lot of text, because this makes it hard to read. Avoid prose. Use ratings (e.g. easy/medium/hard, low/medium/high, ⭐/⭐⭐/⭐⭐⭐) with a few keywords on the next line. Use ✅/❌ to indicate fulfillment.
+_Guidelines for tables: Avoid a lot of text, because this makes it hard to read. Avoid prose. Use ratings (e.g. easy/medium/hard, low/medium/high, ⭐/⭐⭐/⭐⭐⭐) with a few keywords on the next line. Use ✅/❌ to indicate fulfillment._
 
 ## Decision
 
