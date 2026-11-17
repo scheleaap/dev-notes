@@ -26,6 +26,10 @@
 
 See [Drafting messages](./drafting-messages.md)
 
+## Documenting decisions
+
+See [Documenting decisions](./documenting-decisions.md)
+
 ## Writing code
 
 See [Writing code](./writing-code.md)
