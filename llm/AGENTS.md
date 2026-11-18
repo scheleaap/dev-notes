@@ -20,6 +20,8 @@
 
 *Use US English.* Use US English spelling consistently in all output (responses, code comments, docstrings, commit messages, etc.): "color" not "colour", "initialize" not "initialise". Exception: when editing an existing file that already uses British spelling, match the file's existing convention rather than mixing the two.
 
+*Number items uniquely.* Give every option, open issue, task, question or finding a monotonically increasing ID that is unique for the whole session. Use a type prefix and a counter that never restarts (O1, O2…; I1…; T1…; Q1…; F1…). Continue from the highest ID used so far. Never reuse an ID or start a new list at 1. When you refer to an earlier item, use its ID.
+
 *Flagging.* You may (and should) flag things that you think are relevant. However, everything you want to flag must fit within 80 characters. The user prefers one line of comma-separated items.
 
 ## Drafting messages
