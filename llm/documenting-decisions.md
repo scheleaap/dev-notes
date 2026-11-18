@@ -19,6 +19,10 @@ _Optional section. Not needed most of the time, but can sometimes be useful._
 
 _Describe the problem that needs a solution or the question that needs an answer. It's important that the description can be understood based on the background knowledge and context given in the previous sections (i.e. that it does not refer to concepts not defined in the document). If there is more than one problem / question, list them in a structured way. Phrase the problem / question neutrally: don't presuppose the shape of the solution. Choose "Problem" or "Question" as heading._
 
+### Out of scope
+
+_Optional section._
+
 ## Alternatives
 
 _Optional section. Describe the alternatives that were considered. If the alternatives are self-explanatory, this section may be folded into the "Evaluation" section. Regardless of where the alternatives are described, each alternative must state how it solves / answers each stated problem / question._
