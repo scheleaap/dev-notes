@@ -8,5 +8,5 @@ unzip "databricks.zip"
 chmod +x ./databricks
 cp ./databricks "$HOME/.local/bin/databricks"
 # or
-mise use -g databricks-cli@latest
+mise use databricks-cli@latest # add -g to install globally
 ```
