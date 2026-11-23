@@ -2,9 +2,17 @@
 
 Installation guide for stuff I do not always need.
 
+## TODO automate with Ansible
+
+* Ubuntu Desktop: Do not show home folder on desktop
+* Ubuntu Desktop: Set Dock icon size to 32
+* Ubuntu Desktop: Disable Ubuntu's 'enhanced tiling'
+* Displays: Disable built-in scaling for legacy apps
+* Accessibility: Always show accessibility menu
+* Enable night light
+
 ## Software installation
 
-* `sudo apt install direnv`
 * `sudo apt install elvish`
 
 
