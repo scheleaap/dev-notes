@@ -178,8 +178,8 @@
     <RunInTerminalStayOpenParams>-e sh -c '{command}; echo -n Press ENTER to exit... ; read a'</RunInTerminalStayOpenParams>
     <RunInTerminalCloseCmd>x-terminal-emulator</RunInTerminalCloseCmd>
     <RunInTerminalCloseParams>-e sh -c '{command}'</RunInTerminalCloseParams>
-    <JustRunTerminal>ptyxis-here</JustRunTerminal>
-    <JustRunTermParams/>
+    <JustRunTerminal>x-terminal-emulator</JustRunTerminal>
+    <JustRunTermParams>--working-directory=</JustRunTermParams>
     <OnlyOneAppInstance>False</OnlyOneAppInstance>
     <LynxLike>True</LynxLike>
     <FileSizeFormat>0</FileSizeFormat>
