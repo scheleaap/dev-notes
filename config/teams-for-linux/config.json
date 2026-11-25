@@ -1,0 +1,8 @@
+{
+	"tray": {
+		"icon": "/home/wout/Seafile/wout/app-icons/microsoft-teams.png"
+	},
+	"multiAccount": {
+		"enabled": true
+	}
+}

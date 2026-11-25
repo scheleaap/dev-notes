@@ -1,0 +1,29 @@
+{
+	"app": {
+		"profiles": {
+			"list": [
+				{
+					"id": "3987e564-a63d-4130-a86d-0826c6f9f014",
+					"name": "Otto",
+					"partition": "persist:teams-profile-3987e564-a63d-4130-a86d-0826c6f9f014",
+					"avatarColor": "#f00020",
+					"avatarInitials": "OTTO",
+					"disableNotifications": false,
+					"muted": false,
+					"pinned": true
+				},
+				{
+					"id": "31993f56-0f48-406a-aea1-47147c144e0e",
+					"name": "Consid",
+					"partition": "persist:teams-profile-31993f56-0f48-406a-aea1-47147c144e0e",
+					"avatarColor": "#701131",
+					"avatarInitials": "Con",
+					"disableNotifications": false,
+					"muted": false,
+					"pinned": true
+				}
+			],
+			"activeId": "3987e564-a63d-4130-a86d-0826c6f9f014"
+		}
+	}
+}
