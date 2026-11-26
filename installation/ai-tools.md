@@ -43,3 +43,11 @@ More info on how to manage it: https://www.theregister.com/2024/03/17/ai_pc_loca
 ```sh
 docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 ```
+
+## Matt Pocock skills
+
+In a repo:
+
+```sh
+mise exec node@lts npm:skills@latest -- skills add mattpocock/skills
+```
