@@ -1,5 +1,5 @@
 # GCP
 
 ```sh
-mise use -g cloud@latest
+mise use -g gcloud@latest
 ```
