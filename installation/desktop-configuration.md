@@ -2,15 +2,6 @@
 
 Installation guide for stuff I do not always need.
 
-## TODO automate with Ansible
-
-* Ubuntu Desktop: Do not show home folder on desktop
-* Ubuntu Desktop: Set Dock icon size to 32
-* Ubuntu Desktop: Disable Ubuntu's 'enhanced tiling'
-* Displays: Disable built-in scaling for legacy apps
-* Accessibility: Always show accessibility menu
-* Enable night light
-
 ## Software installation
 
 * `sudo apt install elvish`
@@ -31,15 +22,6 @@ sudo chmod 0755 /usr/local/bin/chromedriver
 ## Commitizen
 
 https://commitizen.github.io/cz-cli/
-
-
-## GitHub CLI
-
-```sh
-cd /tmp
-wget https://github.com/cli/cli/releases/download/v0.6.2/gh_0.6.2_linux_amd64.deb
-sudo dpkg -i gh_0.6.2_linux_amd64.deb
-```
 
 
 ## Linuxbrew (Homebrew)
